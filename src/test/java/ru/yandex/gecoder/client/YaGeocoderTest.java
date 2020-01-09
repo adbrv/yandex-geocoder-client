@@ -1,6 +1,5 @@
 package ru.yandex.gecoder.client;
 
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,9 +12,9 @@ public class YaGeocoderTest {
     public void testDirectGeocode() throws Exception {
         /**
          * @TODO
-         * Добавить актуальный ключ апи
+         * Добавить актуальный ключ апи, а по хорошему тест никуда негодится, нужно переписывать
          */
-        YaGeocoder geocoder = new YaGeocoder(new DefaultHttpClient(), "");
+        YaGeocoder geocoder = new YaGeocoder("");
         String request = "Москва, Льва Толстого 16";
         GeocoderResponse response = geocoder.directGeocode(request);
 

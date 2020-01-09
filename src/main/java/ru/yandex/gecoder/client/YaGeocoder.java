@@ -4,6 +4,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -22,12 +23,15 @@ public class YaGeocoder {
     private HttpClient httpClient;
     private String apikey;
 
-    public YaGeocoder(HttpClient httpClient, String apikey) {
-
-        this.httpClient = httpClient;
+    public YaGeocoder(String apikey) {
         this.apikey = apikey;
+        httpClient = new DefaultHttpClient();
     }
 
+    public YaGeocoder(HttpClient httpClient, String apikey) {
+        this.apikey = apikey;
+        this.httpClient = httpClient;
+    }
 
 
     public GeocoderResponse directGeocode(String geocode) throws IOException {
